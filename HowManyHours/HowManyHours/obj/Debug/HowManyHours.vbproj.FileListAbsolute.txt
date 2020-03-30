@@ -1,0 +1,12 @@
+C:\Users\AdamA\OneDrive\Documents\GitHub\HoursWorkThisWeek\HowManyHours\HowManyHours\obj\Debug\HowManyHours.vbprojAssemblyReference.cache
+C:\Users\AdamA\OneDrive\Documents\GitHub\HoursWorkThisWeek\HowManyHours\HowManyHours\obj\Debug\HowManyHours.Form1.resources
+C:\Users\AdamA\OneDrive\Documents\GitHub\HoursWorkThisWeek\HowManyHours\HowManyHours\obj\Debug\HowManyHours.Resources.resources
+C:\Users\AdamA\OneDrive\Documents\GitHub\HoursWorkThisWeek\HowManyHours\HowManyHours\obj\Debug\HowManyHours.vbproj.GenerateResource.cache
+C:\Users\AdamA\OneDrive\Documents\GitHub\HoursWorkThisWeek\HowManyHours\HowManyHours\obj\Debug\HowManyHours.SplashScreen1.resources
+C:\Users\AdamA\OneDrive\Documents\GitHub\HoursWorkThisWeek\HowManyHours\HowManyHours\bin\Debug\Hari Hour Calculator.exe.config
+C:\Users\AdamA\OneDrive\Documents\GitHub\HoursWorkThisWeek\HowManyHours\HowManyHours\bin\Debug\Hari Hour Calculator.exe
+C:\Users\AdamA\OneDrive\Documents\GitHub\HoursWorkThisWeek\HowManyHours\HowManyHours\bin\Debug\Hari Hour Calculator.pdb
+C:\Users\AdamA\OneDrive\Documents\GitHub\HoursWorkThisWeek\HowManyHours\HowManyHours\bin\Debug\Hari Hour Calculator.xml
+C:\Users\AdamA\OneDrive\Documents\GitHub\HoursWorkThisWeek\HowManyHours\HowManyHours\obj\Debug\Hari Hour Calculator.exe
+C:\Users\AdamA\OneDrive\Documents\GitHub\HoursWorkThisWeek\HowManyHours\HowManyHours\obj\Debug\Hari Hour Calculator.xml
+C:\Users\AdamA\OneDrive\Documents\GitHub\HoursWorkThisWeek\HowManyHours\HowManyHours\obj\Debug\Hari Hour Calculator.pdb
