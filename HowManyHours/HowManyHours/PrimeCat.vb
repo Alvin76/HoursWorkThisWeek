@@ -20,17 +20,18 @@ Public Class PrimeCat
     Private ReadOnly strH As String = "Hari:"
     Private ReadOnly dbTimeConvert As Double = 100D / 60D ' this will let min become 00:30 to 0.5
     'This is an array of the days to hold the data of each day into it
-    Private _DaysofWeek() As DaysOfWeek = {Mon, Tue, Wed, Thu, Fri, Sat, Sun}
-    Private Mon As DaysOfWeek
-    Private Tue As DaysOfWeek
-    Private Wed As DaysOfWeek
-    Private Thu As DaysOfWeek
-    Private Fri As DaysOfWeek
-    Private Sat As DaysOfWeek
-    Private Sun As DaysOfWeek
+    Private _DaysofWeek() As DaysOfWeek = New DaysOfWeek() {Mon, Tue, Wed, Thu, Fri, Sat, Sun}
+    Private Mon As DaysOfWeek = New DaysOfWeek
+    Private Tue As DaysOfWeek = New DaysOfWeek
+    Private Wed As DaysOfWeek = New DaysOfWeek
+    Private Thu As DaysOfWeek = New DaysOfWeek
+    Private Fri As DaysOfWeek = New DaysOfWeek
+    Private Sat As DaysOfWeek = New DaysOfWeek
+    Private Sun As DaysOfWeek = New DaysOfWeek
 
     'Private 
     Private Sub btnKill_Click(sender As Object, e As EventArgs) Handles btnKill.Click
+        'THIS KILLS THE PROGRAM
         Close()
     End Sub
 
@@ -155,6 +156,7 @@ Public Class PrimeCat
         dbCurentMin = Convert.ToDouble(strCurentHour)
         dbCurentMin *= dbTimeConvert
         dbClockedTime = dbCurentHour + dbCurentMin
+        MsgBox(dbClockedTime,, "Testing")
         Select Case strCurentDay
             Case "Monday"
                 Mon.enterTime(dbClockedTime, Status)
@@ -228,9 +230,13 @@ Public Class PrimeCat
     End Function
 End Class
 
+''' <summary>
+''' THIS SECTION IS TO MAKE AN OBEJECTS TO STORE THE TIME OF THE DAY FOR CALCULATIONS. NOTE WILL LOOK INTO SETTING UP A DATABASE INSTEAD AS IT LOOKS TO BE BETTER
+''' OF AN OPTION THEN WHAT IS CURNETLY BEING DONE HERE.
+''' </summary>
 Public Class DaysOfWeek
-    Private _dbStartTime() As Double 'Look into this here maybe
-    Private _dbEndTime() As Double
+    Private _dbStartTime(10) As Double 'Look into this here maybe
+    Private _dbEndTime(10) As Double
     Private _dbWorkedTime As Double
     Public Sub enterTime(bdStartTime As Double, EntryType As Boolean)
         If EntryType Then ' if the entry type is true it is a start time else it is a end time
