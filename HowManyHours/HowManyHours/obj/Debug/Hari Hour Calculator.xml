@@ -28,5 +28,11 @@ Hari Hour Calculator
  Punch in Ture | Punch out is False
  </summary>
 </member>
+<member name="T:Hari_Hour_Calculator.DaysOfWeek">
+ <summary>
+ THIS SECTION IS TO MAKE AN OBEJECTS TO STORE THE TIME OF THE DAY FOR CALCULATIONS. NOTE WILL LOOK INTO SETTING UP A DATABASE INSTEAD AS IT LOOKS TO BE BETTER
+ OF AN OPTION THEN WHAT IS CURNETLY BEING DONE HERE.
+ </summary>
+</member>
 </members>
 </doc>

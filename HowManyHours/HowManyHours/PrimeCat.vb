@@ -8,7 +8,6 @@ Imports System.IO
 ''' imporatant notes to rember:
 ''' Punch in Ture | Punch out is False
 ''' </summary>
-
 Public Class PrimeCat
     Private objectReader As StreamReader
     Private FlagLoad As Boolean
@@ -228,6 +227,8 @@ Public Class PrimeCat
         Saved = RecoredTime(strday, dbtime, boState)
         Return Saved
     End Function
+
+
 End Class
 
 ''' <summary>
@@ -255,6 +256,7 @@ Public Class DaysOfWeek
     Public Function CalculateHours() As Double
         Dim dbPunchIn As Double
         Dim dbPunchOut As Double
+
         For i As Int32 = 1 To Len(_dbStartTime)
             dbPunchIn = _dbStartTime(i)
             Try
