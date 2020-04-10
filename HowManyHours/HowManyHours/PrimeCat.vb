@@ -14,6 +14,7 @@ Public Class PrimeCat
     Private FlagSave As Boolean
     Private FlagClockedin As Boolean = False
     Private ReadOnly filePath As String = Path.Combine(My.Computer.FileSystem.SpecialDirectories.MyDocuments)
+    Private ReadOnly strTemplate As String = "Monday IN,Monday OUT,Tuesday IN,Tuesday OUT,Wednesday IN,Wednesday OUT,Thursday IN,Thursday OUT,Friday IN,Friday OUT,Saturday IN,Saturday OUT,Sunday IN,Sunday OUT"
     Private ReadOnly strPur As String = "Purrfict"
     Private ReadOnly strCat As String = "Catastorfic"
     Private ReadOnly strH As String = "Hari:"
@@ -228,7 +229,11 @@ Public Class PrimeCat
         Return Saved
     End Function
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        My.Computer.FileSystem.CreateDirectory(filePath + "TestFolder")
 
+
+    End Sub
 End Class
 
 ''' <summary>
