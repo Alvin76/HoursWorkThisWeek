@@ -22,16 +22,15 @@ Hari Hour Calculator
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="T:Hari_Hour_Calculator.HariWorkHoursDataSet">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
 <member name="T:Hari_Hour_Calculator.PrimeCat">
  <summary>
  imporatant notes to rember:
  Punch in Ture | Punch out is False
- </summary>
-</member>
-<member name="T:Hari_Hour_Calculator.DaysOfWeek">
- <summary>
- THIS SECTION IS TO MAKE AN OBEJECTS TO STORE THE TIME OF THE DAY FOR CALCULATIONS. NOTE WILL LOOK INTO SETTING UP A DATABASE INSTEAD AS IT LOOKS TO BE BETTER
- OF AN OPTION THEN WHAT IS CURNETLY BEING DONE HERE.
  </summary>
 </member>
 </members>

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class PrimeCat
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class PrimeCat
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PrimeCat))
         Me.lblTitle = New System.Windows.Forms.Label()
@@ -63,7 +63,6 @@ Partial Class PrimeCat
         Me.btnPunchIn = New System.Windows.Forms.Button()
         Me.lstDays = New System.Windows.Forms.ListBox()
         Me.lblHelpBox2 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.MenuStrip2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -407,21 +406,11 @@ Partial Class PrimeCat
         Me.lblHelpBox2.Text = "Help Text Goes Here"
         Me.lblHelpBox2.Visible = False
         '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(34, 29)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 24
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'PrimeCat
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(744, 380)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.lblHelpBox2)
         Me.Controls.Add(Me.lstDays)
         Me.Controls.Add(Me.btnPunchIn)
@@ -500,5 +489,4 @@ Partial Class PrimeCat
     Friend WithEvents btnPunchIn As Button
     Friend WithEvents lstDays As ListBox
     Friend WithEvents lblHelpBox2 As Label
-    Friend WithEvents Button1 As Button
 End Class

@@ -9,25 +9,18 @@ Imports System.IO
 ''' Punch in Ture | Punch out is False
 ''' </summary>
 Public Class PrimeCat
+    'Private odaName As New OleDb.OleDbDataAdapter(Sql Select command, Path statment)
+    Private strSql As String = "SELECT * FROM TimeStamps"
+    Private strPath As String = "Provider=Microsoft.ACE.OLEDB.12.0 ; - & Data Source = HariWorkHours.accdb"
+    Private odaTimeStamp As New OleDb.OleDbDataAdapter(strSql, strPath)
     Private objectReader As StreamReader
     Private FlagLoad As Boolean
     Private FlagSave As Boolean
     Private FlagClockedin As Boolean = False
-    Private ReadOnly filePath As String = Path.Combine(My.Computer.FileSystem.SpecialDirectories.MyDocuments)
-    Private ReadOnly strTemplate As String = "Monday IN,Monday OUT,Tuesday IN,Tuesday OUT,Wednesday IN,Wednesday OUT,Thursday IN,Thursday OUT,Friday IN,Friday OUT,Saturday IN,Saturday OUT,Sunday IN,Sunday OUT"
     Private ReadOnly strPur As String = "Purrfict"
     Private ReadOnly strCat As String = "Catastorfic"
     Private ReadOnly strH As String = "Hari:"
     Private ReadOnly dbTimeConvert As Double = 100D / 60D ' this will let min become 00:30 to 0.5
-    'This is an array of the days to hold the data of each day into it
-    Private _DaysofWeek() As DaysOfWeek = New DaysOfWeek() {Mon, Tue, Wed, Thu, Fri, Sat, Sun}
-    Private Mon As DaysOfWeek = New DaysOfWeek
-    Private Tue As DaysOfWeek = New DaysOfWeek
-    Private Wed As DaysOfWeek = New DaysOfWeek
-    Private Thu As DaysOfWeek = New DaysOfWeek
-    Private Fri As DaysOfWeek = New DaysOfWeek
-    Private Sat As DaysOfWeek = New DaysOfWeek
-    Private Sun As DaysOfWeek = New DaysOfWeek
 
     'Private 
     Private Sub btnKill_Click(sender As Object, e As EventArgs) Handles btnKill.Click
@@ -48,23 +41,6 @@ Public Class PrimeCat
     Private Sub btnEntery_Click(sender As Object, e As EventArgs) Handles btnEntery.Click
         Dim strStart As String
         Dim strEnd As String
-        If FlagLoad Then
-            strStart = txtTime.Text
-            'strStart = FileValadator(strStart)
-            If IO.File.Exists(filePath + strStart + ".txt") = True Then
-                objectReader = IO.File.OpenText(filePath + "testme.txt")
-                MsgBox(strH + " The file was loaded",, strPur)
-                Hari()
-            Else
-                MsgBox("The file was not found",, strCat)
-            End If
-        ElseIf FlagSave Then
-
-        Else
-            If TimeValadator() Then
-                MsgBox(strH + " Your Punch was recoreded",, strPur)
-            End If
-        End If
 
     End Sub
     Private Function FileValadator(Var1 As String) As String
@@ -120,15 +96,6 @@ Public Class PrimeCat
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Hari()
-        Dim testme As String = "testme.txt"
-        Dim x As FileStream
-        x = File.Create(filePath + testme)
-        x.Close()
-        If File.Exists(filePath + testme) Then
-            MsgBox("it worked",, strPur)
-        Else
-            MsgBox("it didn't work",, strCat)
-        End If
     End Sub
 
     Private Sub btnPunchIn_Click(sender As Object, e As EventArgs) Handles btnPunchIn.Click
@@ -143,6 +110,7 @@ Public Class PrimeCat
         'clocks out'
     End Sub
     Private Sub TimePunch(Status As Boolean)
+        'Data Formats
         Dim strCurentDay As String
         Dim strCurentHour As String
         Dim dbCurentHour As Double
@@ -157,23 +125,6 @@ Public Class PrimeCat
         dbCurentMin *= dbTimeConvert
         dbClockedTime = dbCurentHour + dbCurentMin
         MsgBox(dbClockedTime,, "Testing")
-        Select Case strCurentDay
-            Case "Monday"
-                Mon.enterTime(dbClockedTime, Status)
-            Case "Tuesday"
-                Tue.enterTime(dbClockedTime, Status)
-            Case "Wednesday"
-                Wed.enterTime(dbClockedTime, Status)
-            Case "Thursday"
-                Thu.enterTime(dbClockedTime, Status)
-            Case "Friday"
-                Fri.enterTime(dbClockedTime, Status)
-            Case "Saturday"
-                Sat.enterTime(dbClockedTime, Status)
-            Case "Sunday"
-                Sun.enterTime(dbClockedTime, Status)
-        End Select
-        MsgBox(Mon.CalculateHours())
         'Switch nowish as String = strCurentDate
         'End
         'MsgBox("The formatted date is " & Format(Now, "dddd, d MMM yyyy"))
@@ -228,59 +179,5 @@ Public Class PrimeCat
         Saved = RecoredTime(strday, dbtime, boState)
         Return Saved
     End Function
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        My.Computer.FileSystem.CreateDirectory(filePath + "TestFolder")
-
-
-    End Sub
-End Class
-
-''' <summary>
-''' THIS SECTION IS TO MAKE AN OBEJECTS TO STORE THE TIME OF THE DAY FOR CALCULATIONS. NOTE WILL LOOK INTO SETTING UP A DATABASE INSTEAD AS IT LOOKS TO BE BETTER
-''' OF AN OPTION THEN WHAT IS CURNETLY BEING DONE HERE.
-''' </summary>
-Public Class DaysOfWeek
-    Private _dbStartTime(10) As Double 'Look into this here maybe
-    Private _dbEndTime(10) As Double
-    Private _dbWorkedTime As Double
-    Public Sub enterTime(bdStartTime As Double, EntryType As Boolean)
-        If EntryType Then ' if the entry type is true it is a start time else it is a end time
-            _dbStartTime.Append(bdStartTime)
-        Else
-            _dbEndTime.Append(bdStartTime)
-        End If
-    End Sub
-    Public Function requestTime(EntryType As Boolean) As Double()
-        If EntryType Then
-            Return _dbStartTime
-        Else
-            Return _dbEndTime
-        End If
-    End Function
-    Public Function CalculateHours() As Double
-        Dim dbPunchIn As Double
-        Dim dbPunchOut As Double
-
-        For i As Int32 = 1 To Len(_dbStartTime)
-            dbPunchIn = _dbStartTime(i)
-            Try
-                dbPunchOut = _dbEndTime(i)
-            Catch ex As Exception
-                dbPunchOut = -1D
-            End Try
-            If dbPunchOut = -1D Then
-                If dbPunchOut > dbPunchIn Then
-                    _dbWorkedTime = dbPunchOut - dbPunchIn
-                Else 'need to added a cut off for 24:00 and punch back in as the data is stored per day
-                    dbPunchOut += 24D
-                    _dbWorkedTime = dbPunchOut - dbPunchIn
-                End If
-            End If
-
-        Next
-        Return _dbWorkedTime
-    End Function
-
 End Class
 
