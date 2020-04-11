@@ -100,6 +100,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="HariWorkHoursDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HariWorkHoursDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HariWorkHoursDataSet.vb">
+      <DependentUpon>HariWorkHoursDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="PrimeCat.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +153,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="HariWorkHoursDataSet.xsc">
+      <DependentUpon>HariWorkHoursDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HariWorkHoursDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HariWorkHoursDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HariWorkHoursDataSet.xss">
+      <DependentUpon>HariWorkHoursDataSet.xsd</DependentUpon>
+    </None>
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -181,6 +200,11 @@
     <Analyzer Include="..\packages\Microsoft.NetCore.Analyzers.2.9.8\analyzers\dotnet\vb\Microsoft.NetCore.VisualBasic.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.8\analyzers\dotnet\vb\Microsoft.NetFramework.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.8\analyzers\dotnet\vb\Microsoft.NetFramework.VisualBasic.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="HariWorkHours.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
