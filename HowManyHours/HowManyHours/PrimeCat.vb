@@ -13,6 +13,10 @@ Public Class PrimeCat
     Private strSql As String = "SELECT * FROM TimeStamps"
     Private strPath As String = "Provider=Microsoft.ACE.OLEDB.12.0 ; - & Data Source = HariWorkHours.accdb"
     Private odaTimeStamp As New OleDb.OleDbDataAdapter(strSql, strPath)
+    Private DatValue As New DataTable
+    Private intcount As Int32
+    Private intNumberOfRows As Int32 = DatValue.Rows.Count
+    Private intNumberOfColumns As Int32 = DatValue.Columns.Count
     Private objectReader As StreamReader
     Private FlagLoad As Boolean
     Private FlagSave As Boolean
@@ -28,7 +32,7 @@ Public Class PrimeCat
         Close()
     End Sub
 
-    Private Sub btnLoad_Click(sender As Object, e As EventArgs) Handles btnLoad.Click
+    Private Sub btnLoad_Click(sender As Object, e As EventArgs)
         Hari()
         FlagLoad = True
         btnEntery.Visible = True
@@ -94,10 +98,7 @@ Public Class PrimeCat
 
     End Function
 
-    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        Hari()
-    End Sub
-
+    'Puch system
     Private Sub btnPunchIn_Click(sender As Object, e As EventArgs) Handles btnPunchIn.Click
         Hari()
         TimePunch(True)
@@ -125,6 +126,8 @@ Public Class PrimeCat
         dbCurentMin *= dbTimeConvert
         dbClockedTime = dbCurentHour + dbCurentMin
         MsgBox(dbClockedTime,, "Testing")
+
+        'odaTimeStamp.f
         'Switch nowish as String = strCurentDate
         'End
         'MsgBox("The formatted date is " & Format(Now, "dddd, d MMM yyyy"))
@@ -133,7 +136,7 @@ Public Class PrimeCat
         'https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualbasic.dateandtime.timestring?view=netframework-4.8
     End Sub
 
-    Private Sub btnEnterTime_Click(sender As Object, e As EventArgs) Handles btnEnterTime.Click
+    Private Sub btnEnterTime_Click(sender As Object, e As EventArgs)
         Hari()
         FlagLoad = False
         FlagSave = False

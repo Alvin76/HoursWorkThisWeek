@@ -25,11 +25,7 @@ Partial Class PrimeCat
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PrimeCat))
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.lblTotalHours = New System.Windows.Forms.Label()
-        Me.btnEnterTime = New System.Windows.Forms.Button()
         Me.btnEditTime = New System.Windows.Forms.Button()
-        Me.btnSave = New System.Windows.Forms.Button()
-        Me.btnLoad = New System.Windows.Forms.Button()
-        Me.btnClearAll = New System.Windows.Forms.Button()
         Me.btnKill = New System.Windows.Forms.Button()
         Me.btnEntery = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
@@ -89,15 +85,6 @@ Partial Class PrimeCat
         Me.lblTotalHours.Text = "The Total Hours you have work so far this week is XXX:XX"
         Me.lblTotalHours.Visible = False
         '
-        'btnEnterTime
-        '
-        Me.btnEnterTime.Location = New System.Drawing.Point(34, 156)
-        Me.btnEnterTime.Name = "btnEnterTime"
-        Me.btnEnterTime.Size = New System.Drawing.Size(102, 23)
-        Me.btnEnterTime.TabIndex = 2
-        Me.btnEnterTime.Text = "Enter Time"
-        Me.btnEnterTime.UseVisualStyleBackColor = True
-        '
         'btnEditTime
         '
         Me.btnEditTime.Enabled = False
@@ -107,33 +94,6 @@ Partial Class PrimeCat
         Me.btnEditTime.TabIndex = 3
         Me.btnEditTime.Text = "Edit Time"
         Me.btnEditTime.UseVisualStyleBackColor = True
-        '
-        'btnSave
-        '
-        Me.btnSave.Location = New System.Drawing.Point(34, 214)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(102, 23)
-        Me.btnSave.TabIndex = 4
-        Me.btnSave.Text = "Save"
-        Me.btnSave.UseVisualStyleBackColor = True
-        '
-        'btnLoad
-        '
-        Me.btnLoad.Location = New System.Drawing.Point(34, 243)
-        Me.btnLoad.Name = "btnLoad"
-        Me.btnLoad.Size = New System.Drawing.Size(102, 23)
-        Me.btnLoad.TabIndex = 5
-        Me.btnLoad.Text = "Load"
-        Me.btnLoad.UseVisualStyleBackColor = True
-        '
-        'btnClearAll
-        '
-        Me.btnClearAll.Location = New System.Drawing.Point(34, 272)
-        Me.btnClearAll.Name = "btnClearAll"
-        Me.btnClearAll.Size = New System.Drawing.Size(102, 23)
-        Me.btnClearAll.TabIndex = 6
-        Me.btnClearAll.Text = "Clear All Data"
-        Me.btnClearAll.UseVisualStyleBackColor = True
         '
         'btnKill
         '
@@ -422,11 +382,7 @@ Partial Class PrimeCat
         Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.btnEntery)
         Me.Controls.Add(Me.btnKill)
-        Me.Controls.Add(Me.btnClearAll)
-        Me.Controls.Add(Me.btnLoad)
-        Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.btnEditTime)
-        Me.Controls.Add(Me.btnEnterTime)
         Me.Controls.Add(Me.lblTotalHours)
         Me.Controls.Add(Me.lblTitle)
         Me.Controls.Add(Me.MnuDays)
@@ -451,11 +407,7 @@ Partial Class PrimeCat
 
     Friend WithEvents lblTitle As Label
     Friend WithEvents lblTotalHours As Label
-    Friend WithEvents btnEnterTime As Button
     Friend WithEvents btnEditTime As Button
-    Friend WithEvents btnSave As Button
-    Friend WithEvents btnLoad As Button
-    Friend WithEvents btnClearAll As Button
     Friend WithEvents btnKill As Button
     Friend WithEvents btnEntery As Button
     Friend WithEvents btnClear As Button
