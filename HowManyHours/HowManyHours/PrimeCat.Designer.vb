@@ -22,13 +22,15 @@ Partial Class PrimeCat
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim lblEnteredDate As System.Windows.Forms.Label
+        Dim lblTimeIN As System.Windows.Forms.Label
+        Dim lblTimeOut As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PrimeCat))
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.lblTotalHours = New System.Windows.Forms.Label()
         Me.btnEditTime = New System.Windows.Forms.Button()
         Me.btnKill = New System.Windows.Forms.Button()
-        Me.btnEntery = New System.Windows.Forms.Button()
-        Me.btnClear = New System.Windows.Forms.Button()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.MonToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -40,11 +42,6 @@ Partial Class PrimeCat
         Me.SunToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip2 = New System.Windows.Forms.MenuStrip()
         Me.SelectAnEnteryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.lblHelp = New System.Windows.Forms.Label()
-        Me.txtTime = New System.Windows.Forms.TextBox()
-        Me.radAM = New System.Windows.Forms.RadioButton()
-        Me.radPM = New System.Windows.Forms.RadioButton()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.MnuDays = New System.Windows.Forms.MenuStrip()
         Me.DaysToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MonToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -54,16 +51,62 @@ Partial Class PrimeCat
         Me.FriToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.SatToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.SunToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LstEntreys = New System.Windows.Forms.ListBox()
         Me.btnPunchOut = New System.Windows.Forms.Button()
         Me.btnPunchIn = New System.Windows.Forms.Button()
-        Me.lstDays = New System.Windows.Forms.ListBox()
-        Me.lblHelpBox2 = New System.Windows.Forms.Label()
+        Me.EnteredDateDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.txtTimeIN = New System.Windows.Forms.TextBox()
+        Me.txtTimeOut = New System.Windows.Forms.TextBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btnAdd = New System.Windows.Forms.Button()
+        Me.BtnEdit = New System.Windows.Forms.Button()
+        Me.btnRmove = New System.Windows.Forms.Button()
+        Me.DataViewManager1 = New System.Data.DataViewManager()
+        Me.DataView1 = New System.Data.DataView()
+        Me.TimeStampsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.HariWorkHoursDataSet = New Hari_Hour_Calculator.HariWorkHoursDataSet()
+        Me.TimeStampsTableAdapter = New Hari_Hour_Calculator.HariWorkHoursDataSetTableAdapters.TimeStampsTableAdapter()
+        Me.TableAdapterManager = New Hari_Hour_Calculator.HariWorkHoursDataSetTableAdapters.TableAdapterManager()
+        lblEnteredDate = New System.Windows.Forms.Label()
+        lblTimeIN = New System.Windows.Forms.Label()
+        lblTimeOut = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.MenuStrip2.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MnuDays.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TimeStampsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.HariWorkHoursDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'lblEnteredDate
+        '
+        lblEnteredDate.AutoSize = True
+        lblEnteredDate.Location = New System.Drawing.Point(471, 237)
+        lblEnteredDate.Name = "lblEnteredDate"
+        lblEnteredDate.Size = New System.Drawing.Size(61, 13)
+        lblEnteredDate.TabIndex = 24
+        lblEnteredDate.Text = "Enter Date:"
+        lblEnteredDate.Visible = False
+        '
+        'lblTimeIN
+        '
+        lblTimeIN.AutoSize = True
+        lblTimeIN.Location = New System.Drawing.Point(530, 260)
+        lblTimeIN.Name = "lblTimeIN"
+        lblTimeIN.Size = New System.Drawing.Size(44, 13)
+        lblTimeIN.TabIndex = 25
+        lblTimeIN.Text = "Time in:"
+        lblTimeIN.Visible = False
+        '
+        'lblTimeOut
+        '
+        lblTimeOut.AutoSize = True
+        lblTimeOut.Location = New System.Drawing.Point(524, 287)
+        lblTimeOut.Name = "lblTimeOut"
+        lblTimeOut.Size = New System.Drawing.Size(51, 13)
+        lblTimeOut.TabIndex = 26
+        lblTimeOut.Text = "Time out:"
+        lblTimeOut.Visible = False
         '
         'lblTitle
         '
@@ -71,9 +114,9 @@ Partial Class PrimeCat
         Me.lblTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitle.Location = New System.Drawing.Point(158, 9)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(429, 31)
+        Me.lblTitle.Size = New System.Drawing.Size(440, 31)
         Me.lblTitle.TabIndex = 0
-        Me.lblTitle.Text = "Welcome to Hari hour calculator"
+        Me.lblTitle.Text = "Welcome to Hari Hour Calculator"
         '
         'lblTotalHours
         '
@@ -88,7 +131,7 @@ Partial Class PrimeCat
         'btnEditTime
         '
         Me.btnEditTime.Enabled = False
-        Me.btnEditTime.Location = New System.Drawing.Point(34, 185)
+        Me.btnEditTime.Location = New System.Drawing.Point(32, 203)
         Me.btnEditTime.Name = "btnEditTime"
         Me.btnEditTime.Size = New System.Drawing.Size(102, 23)
         Me.btnEditTime.TabIndex = 3
@@ -97,33 +140,12 @@ Partial Class PrimeCat
         '
         'btnKill
         '
-        Me.btnKill.Location = New System.Drawing.Point(34, 301)
+        Me.btnKill.Location = New System.Drawing.Point(32, 232)
         Me.btnKill.Name = "btnKill"
         Me.btnKill.Size = New System.Drawing.Size(102, 23)
         Me.btnKill.TabIndex = 7
         Me.btnKill.Text = "Quit"
         Me.btnKill.UseVisualStyleBackColor = True
-        '
-        'btnEntery
-        '
-        Me.btnEntery.Location = New System.Drawing.Point(603, 266)
-        Me.btnEntery.Name = "btnEntery"
-        Me.btnEntery.Size = New System.Drawing.Size(75, 23)
-        Me.btnEntery.TabIndex = 8
-        Me.btnEntery.Text = "Enter"
-        Me.btnEntery.UseVisualStyleBackColor = True
-        Me.btnEntery.Visible = False
-        '
-        'btnClear
-        '
-        Me.btnClear.Location = New System.Drawing.Point(603, 295)
-        Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(75, 23)
-        Me.btnClear.TabIndex = 9
-        Me.btnClear.Text = "Clear"
-        Me.btnClear.UseMnemonic = False
-        Me.btnClear.UseVisualStyleBackColor = True
-        Me.btnClear.Visible = False
         '
         'MenuStrip1
         '
@@ -202,61 +224,6 @@ Partial Class PrimeCat
         Me.SelectAnEnteryToolStripMenuItem.Size = New System.Drawing.Size(102, 20)
         Me.SelectAnEnteryToolStripMenuItem.Text = "Select an Entery"
         '
-        'lblHelp
-        '
-        Me.lblHelp.AutoSize = True
-        Me.lblHelp.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblHelp.Location = New System.Drawing.Point(185, 63)
-        Me.lblHelp.Name = "lblHelp"
-        Me.lblHelp.Size = New System.Drawing.Size(147, 18)
-        Me.lblHelp.TabIndex = 12
-        Me.lblHelp.Text = "Help Text Goes Here"
-        Me.lblHelp.Visible = False
-        '
-        'txtTime
-        '
-        Me.txtTime.Location = New System.Drawing.Point(603, 194)
-        Me.txtTime.Name = "txtTime"
-        Me.txtTime.Size = New System.Drawing.Size(100, 20)
-        Me.txtTime.TabIndex = 13
-        Me.txtTime.Text = "XX:XX"
-        Me.txtTime.Visible = False
-        '
-        'radAM
-        '
-        Me.radAM.AutoSize = True
-        Me.radAM.Checked = True
-        Me.radAM.Location = New System.Drawing.Point(603, 214)
-        Me.radAM.Name = "radAM"
-        Me.radAM.Size = New System.Drawing.Size(41, 17)
-        Me.radAM.TabIndex = 15
-        Me.radAM.TabStop = True
-        Me.radAM.Text = "AM"
-        Me.radAM.UseVisualStyleBackColor = True
-        Me.radAM.Visible = False
-        '
-        'radPM
-        '
-        Me.radPM.AutoSize = True
-        Me.radPM.Location = New System.Drawing.Point(659, 214)
-        Me.radPM.Name = "radPM"
-        Me.radPM.Size = New System.Drawing.Size(41, 17)
-        Me.radPM.TabIndex = 16
-        Me.radPM.Text = "PM"
-        Me.radPM.UseVisualStyleBackColor = True
-        Me.radPM.Visible = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(183, 63)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(549, 305)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 17
-        Me.PictureBox1.TabStop = False
-        '
         'MnuDays
         '
         Me.MnuDays.Dock = System.Windows.Forms.DockStyle.None
@@ -318,18 +285,9 @@ Partial Class PrimeCat
         Me.SunToolStripMenuItem1.Size = New System.Drawing.Size(99, 22)
         Me.SunToolStripMenuItem1.Text = "Sun"
         '
-        'LstEntreys
-        '
-        Me.LstEntreys.FormattingEnabled = True
-        Me.LstEntreys.Location = New System.Drawing.Point(287, 89)
-        Me.LstEntreys.Name = "LstEntreys"
-        Me.LstEntreys.Size = New System.Drawing.Size(126, 264)
-        Me.LstEntreys.TabIndex = 19
-        Me.LstEntreys.Visible = False
-        '
         'btnPunchOut
         '
-        Me.btnPunchOut.Location = New System.Drawing.Point(34, 127)
+        Me.btnPunchOut.Location = New System.Drawing.Point(32, 174)
         Me.btnPunchOut.Name = "btnPunchOut"
         Me.btnPunchOut.Size = New System.Drawing.Size(102, 23)
         Me.btnPunchOut.TabIndex = 20
@@ -338,58 +296,130 @@ Partial Class PrimeCat
         '
         'btnPunchIn
         '
-        Me.btnPunchIn.Location = New System.Drawing.Point(34, 98)
+        Me.btnPunchIn.Location = New System.Drawing.Point(32, 145)
         Me.btnPunchIn.Name = "btnPunchIn"
         Me.btnPunchIn.Size = New System.Drawing.Size(102, 23)
         Me.btnPunchIn.TabIndex = 21
         Me.btnPunchIn.Text = "Punch In"
         Me.btnPunchIn.UseVisualStyleBackColor = True
         '
-        'lstDays
+        'EnteredDateDateTimePicker
         '
-        Me.lstDays.FormattingEnabled = True
-        Me.lstDays.Items.AddRange(New Object() {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"})
-        Me.lstDays.Location = New System.Drawing.Point(550, 194)
-        Me.lstDays.Name = "lstDays"
-        Me.lstDays.Size = New System.Drawing.Size(47, 95)
-        Me.lstDays.TabIndex = 22
-        Me.lstDays.Visible = False
+        Me.EnteredDateDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.TimeStampsBindingSource, "EnteredDate", True))
+        Me.EnteredDateDateTimePicker.Location = New System.Drawing.Point(533, 231)
+        Me.EnteredDateDateTimePicker.Name = "EnteredDateDateTimePicker"
+        Me.EnteredDateDateTimePicker.Size = New System.Drawing.Size(200, 20)
+        Me.EnteredDateDateTimePicker.TabIndex = 25
+        Me.EnteredDateDateTimePicker.Visible = False
         '
-        'lblHelpBox2
+        'txtTimeIN
         '
-        Me.lblHelpBox2.AutoSize = True
-        Me.lblHelpBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblHelpBox2.Location = New System.Drawing.Point(547, 173)
-        Me.lblHelpBox2.Name = "lblHelpBox2"
-        Me.lblHelpBox2.Size = New System.Drawing.Size(147, 18)
-        Me.lblHelpBox2.TabIndex = 23
-        Me.lblHelpBox2.Text = "Help Text Goes Here"
-        Me.lblHelpBox2.Visible = False
+        Me.txtTimeIN.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TimeStampsBindingSource, "TimeIN", True))
+        Me.txtTimeIN.Location = New System.Drawing.Point(583, 257)
+        Me.txtTimeIN.Name = "txtTimeIN"
+        Me.txtTimeIN.Size = New System.Drawing.Size(100, 20)
+        Me.txtTimeIN.TabIndex = 26
+        Me.txtTimeIN.Visible = False
+        '
+        'txtTimeOut
+        '
+        Me.txtTimeOut.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TimeStampsBindingSource, "TimeOut", True))
+        Me.txtTimeOut.Location = New System.Drawing.Point(583, 284)
+        Me.txtTimeOut.Name = "txtTimeOut"
+        Me.txtTimeOut.Size = New System.Drawing.Size(100, 20)
+        Me.txtTimeOut.TabIndex = 27
+        Me.txtTimeOut.Visible = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox1.DataBindings.Add(New System.Windows.Forms.Binding("Image", Me.TimeStampsBindingSource, "EnteredDate", True))
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(176, 56)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(569, 305)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 17
+        Me.PictureBox1.TabStop = False
+        '
+        'btnAdd
+        '
+        Me.btnAdd.Location = New System.Drawing.Point(457, 329)
+        Me.btnAdd.Name = "btnAdd"
+        Me.btnAdd.Size = New System.Drawing.Size(75, 23)
+        Me.btnAdd.TabIndex = 28
+        Me.btnAdd.Text = "Add"
+        Me.btnAdd.UseVisualStyleBackColor = True
+        Me.btnAdd.Visible = False
+        '
+        'BtnEdit
+        '
+        Me.BtnEdit.Location = New System.Drawing.Point(538, 329)
+        Me.BtnEdit.Name = "BtnEdit"
+        Me.BtnEdit.Size = New System.Drawing.Size(75, 23)
+        Me.BtnEdit.TabIndex = 29
+        Me.BtnEdit.Text = "Edit"
+        Me.BtnEdit.UseVisualStyleBackColor = True
+        Me.BtnEdit.Visible = False
+        '
+        'btnRmove
+        '
+        Me.btnRmove.Location = New System.Drawing.Point(619, 329)
+        Me.btnRmove.Name = "btnRmove"
+        Me.btnRmove.Size = New System.Drawing.Size(75, 23)
+        Me.btnRmove.TabIndex = 30
+        Me.btnRmove.Text = "Remove"
+        Me.btnRmove.UseVisualStyleBackColor = True
+        Me.btnRmove.Visible = False
+        '
+        'DataViewManager1
+        '
+        Me.DataViewManager1.DataViewSettingCollectionString = ""
+        '
+        'TimeStampsBindingSource
+        '
+        Me.TimeStampsBindingSource.DataMember = "TimeStamps"
+        Me.TimeStampsBindingSource.DataSource = Me.HariWorkHoursDataSet
+        '
+        'HariWorkHoursDataSet
+        '
+        Me.HariWorkHoursDataSet.DataSetName = "HariWorkHoursDataSet"
+        Me.HariWorkHoursDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'TimeStampsTableAdapter
+        '
+        Me.TimeStampsTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.TimeStampsTableAdapter = Me.TimeStampsTableAdapter
+        Me.TableAdapterManager.UpdateOrder = Hari_Hour_Calculator.HariWorkHoursDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
         'PrimeCat
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(744, 380)
-        Me.Controls.Add(Me.lblHelpBox2)
-        Me.Controls.Add(Me.lstDays)
+        Me.ClientSize = New System.Drawing.Size(757, 388)
+        Me.Controls.Add(Me.btnRmove)
+        Me.Controls.Add(Me.BtnEdit)
+        Me.Controls.Add(Me.btnAdd)
+        Me.Controls.Add(lblTimeOut)
+        Me.Controls.Add(Me.txtTimeOut)
+        Me.Controls.Add(lblTimeIN)
+        Me.Controls.Add(Me.txtTimeIN)
+        Me.Controls.Add(lblEnteredDate)
+        Me.Controls.Add(Me.EnteredDateDateTimePicker)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btnPunchIn)
         Me.Controls.Add(Me.btnPunchOut)
-        Me.Controls.Add(Me.radPM)
-        Me.Controls.Add(Me.radAM)
-        Me.Controls.Add(Me.txtTime)
-        Me.Controls.Add(Me.lblHelp)
-        Me.Controls.Add(Me.btnClear)
-        Me.Controls.Add(Me.btnEntery)
         Me.Controls.Add(Me.btnKill)
         Me.Controls.Add(Me.btnEditTime)
         Me.Controls.Add(Me.lblTotalHours)
         Me.Controls.Add(Me.lblTitle)
-        Me.Controls.Add(Me.MnuDays)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.MenuStrip2)
-        Me.Controls.Add(Me.LstEntreys)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.MnuDays)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "PrimeCat"
         Me.Text = "Hari Hour Calculator"
@@ -397,9 +427,12 @@ Partial Class PrimeCat
         Me.MenuStrip1.PerformLayout()
         Me.MenuStrip2.ResumeLayout(False)
         Me.MenuStrip2.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MnuDays.ResumeLayout(False)
         Me.MnuDays.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TimeStampsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.HariWorkHoursDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -409,8 +442,6 @@ Partial Class PrimeCat
     Friend WithEvents lblTotalHours As Label
     Friend WithEvents btnEditTime As Button
     Friend WithEvents btnKill As Button
-    Friend WithEvents btnEntery As Button
-    Friend WithEvents btnClear As Button
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents MonToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TuToolStripMenuItem As ToolStripMenuItem
@@ -422,11 +453,6 @@ Partial Class PrimeCat
     Friend WithEvents SunToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MenuStrip2 As MenuStrip
     Friend WithEvents SelectAnEnteryToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents lblHelp As Label
-    Friend WithEvents txtTime As TextBox
-    Friend WithEvents radAM As RadioButton
-    Friend WithEvents radPM As RadioButton
-    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents MnuDays As MenuStrip
     Friend WithEvents DaysToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MonToolStripMenuItem1 As ToolStripMenuItem
@@ -436,9 +462,19 @@ Partial Class PrimeCat
     Friend WithEvents FriToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents SatToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents SunToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents LstEntreys As ListBox
     Friend WithEvents btnPunchOut As Button
     Friend WithEvents btnPunchIn As Button
-    Friend WithEvents lstDays As ListBox
-    Friend WithEvents lblHelpBox2 As Label
+    Friend WithEvents HariWorkHoursDataSet As HariWorkHoursDataSet
+    Friend WithEvents TimeStampsBindingSource As BindingSource
+    Friend WithEvents TimeStampsTableAdapter As HariWorkHoursDataSetTableAdapters.TimeStampsTableAdapter
+    Friend WithEvents TableAdapterManager As HariWorkHoursDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents EnteredDateDateTimePicker As DateTimePicker
+    Friend WithEvents txtTimeIN As TextBox
+    Friend WithEvents txtTimeOut As TextBox
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents btnAdd As Button
+    Friend WithEvents BtnEdit As Button
+    Friend WithEvents btnRmove As Button
+    Friend WithEvents DataViewManager1 As DataViewManager
+    Friend WithEvents DataView1 As DataView
 End Class
